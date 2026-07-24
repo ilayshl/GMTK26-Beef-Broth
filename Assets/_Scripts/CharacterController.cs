@@ -32,7 +32,7 @@ public abstract class CharacterController : MonoBehaviour
         _rb.AddForce(transform.forward * forwardForce);
         
         Vector2 linearVelocity = new Vector2(_rb.linearVelocity.x, _rb.linearVelocity.z);
-        Debug.Log($"[{name}] {linearVelocity.magnitude}");
+        //Debug.Log($"[{name}] {linearVelocity.magnitude}");
         if(linearVelocity.magnitude > maxSpeed)
         {
             Vector3 limitVelocity = _rb.linearVelocity.normalized * maxSpeed;
