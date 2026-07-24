@@ -24,7 +24,7 @@ public class MainMenuManager : MonoBehaviour
 
     private void OnPlayPressed()
     {
-        SceneManager.LoadScene("Game Scene");
+        SceneManager.LoadScene(gameSceneName);
     }
 
     private void OnSettingsPressed()
