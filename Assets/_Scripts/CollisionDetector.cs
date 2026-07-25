@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CollisionDetector : MonoBehaviour
 {
-    public event Action<int> HitReceived;
+    public event Action HitReceived;
     public Transform Head => collisionHead;
     [SerializeField] private Transform collisionHead;
     
@@ -17,8 +17,8 @@ public class CollisionDetector : MonoBehaviour
         }
     }
 
-    public void ReceiveHit(float value)
+    public void ReceiveHit()
     {
-        HitReceived?.Invoke(Mathf.RoundToInt(value));
+        HitReceived?.Invoke();
     }
 }
