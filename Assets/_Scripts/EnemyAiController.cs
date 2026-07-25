@@ -19,13 +19,12 @@ public class EnemyAiController : CarController
         }
     }
 
-    protected override void OnDestroy()
+    private void OnDestroy()
     {
-        base.OnDestroy();
-        if (target == null)
+         if (target == null)
             EventBus.Unsubscribe<GameStartedEvent>(OnGameStarted);
     }
-
+    
     private void OnGameStarted(GameStartedEvent ev)
     {
         _target = ev.Player;

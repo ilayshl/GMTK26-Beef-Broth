@@ -45,9 +45,9 @@ public abstract class CarController : MonoBehaviour
         Vector3 targetDirection = (targetPosition - rb.transform.position).normalized;
 
         float angle = Vector3.SignedAngle(
-    transform.forward,
-    targetDirection.normalized,
-    Vector3.up);
+        transform.forward,
+        targetDirection.normalized,
+        Vector3.up);
 
         float steering = Mathf.Clamp(angle / 90f, -1f, 1f);
 
@@ -56,7 +56,6 @@ public abstract class CarController : MonoBehaviour
             - rb.angularVelocity.y * rotationDamping;
 
         rb.AddTorque(Vector3.up * torque, ForceMode.Acceleration);
-        Debug.Log($"[{name}] Rotating towards {torque}");
     }
 
     private void OnDrawGizmos()
@@ -66,5 +65,6 @@ public abstract class CarController : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(targetPosition, 0.5f);
+        Gizmos.DrawLine(transform.position, targetPosition);
     }
 }

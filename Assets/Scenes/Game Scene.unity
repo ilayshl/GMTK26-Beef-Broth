@@ -619,7 +619,7 @@ GameObject:
   - component: {fileID: 456711230}
   - component: {fileID: 456711229}
   - component: {fileID: 456711232}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -766,7 +766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8963629726403334843, guid: 8631c26956d2f4adaadf42f35fd9fac3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.552
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8963629726403334843, guid: 8631c26956d2f4adaadf42f35fd9fac3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1092,7 +1092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1768184725471137701, guid: e8563b1e353329e41b54646f7724db79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.552
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1768184725471137701, guid: e8563b1e353329e41b54646f7724db79, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1126,50 +1126,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3470891947521732544, guid: e8563b1e353329e41b54646f7724db79, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: 9eaeff8ba7765f645aacf087d6520081, type: 2}
-    - target: {fileID: 3908166759558332454, guid: e8563b1e353329e41b54646f7724db79, type: 3}
-      propertyPath: forwardForce
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3908166759558332454, guid: e8563b1e353329e41b54646f7724db79, type: 3}
-      propertyPath: rotationForce
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3908166759558332454, guid: e8563b1e353329e41b54646f7724db79, type: 3}
-      propertyPath: rotationDamping
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3908166759558332454, guid: e8563b1e353329e41b54646f7724db79, type: 3}
-      propertyPath: m_EditorClassIdentifier
-      value: Assembly-CSharp::PlayerController
-      objectReference: {fileID: 0}
     - target: {fileID: 4137048903635992152, guid: e8563b1e353329e41b54646f7724db79, type: 3}
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 5103804273096449081, guid: e8563b1e353329e41b54646f7724db79, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: 9eaeff8ba7765f645aacf087d6520081, type: 2}
-    - target: {fileID: 5598394710070179067, guid: e8563b1e353329e41b54646f7724db79, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5612691634457065495, guid: e8563b1e353329e41b54646f7724db79, type: 3}
-      propertyPath: m_Constraints
-      value: 84
-      objectReference: {fileID: 0}
-    - target: {fileID: 8832460328605790767, guid: e8563b1e353329e41b54646f7724db79, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: 9eaeff8ba7765f645aacf087d6520081, type: 2}
-    - target: {fileID: 9188081629605115928, guid: e8563b1e353329e41b54646f7724db79, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: 9eaeff8ba7765f645aacf087d6520081, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
