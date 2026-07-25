@@ -5,6 +5,7 @@ using UnityEngine;
 public class CollisionManager : MonoBehaviour
 {
     [SerializeField] private float velocityInfluence = 0.2f;
+    [SerializeField] private float collisionKnockback = 3f;
     [SerializeField] private MMFeedbacks collisionFeedback;
     [SerializeField] private MMFeedbacks hitFeedback;
     [SerializeField] private MMFeedbacks uiFeedback;
@@ -94,6 +95,9 @@ public class CollisionManager : MonoBehaviour
                 $"Collision with no attacker | A:{aScore:F2} B:{bScore:F2}");
             return;
         }
+
+        aRb.AddForce(-(aCollisionDirection * collisionKnockback), ForceMode.Impulse);
+        bRb.AddForce(-(bCollisionDirection * collisionKnockback), ForceMode.Impulse);
 
         receiver.ReceiveHit();
 
