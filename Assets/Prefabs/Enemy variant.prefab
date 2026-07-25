@@ -79,7 +79,7 @@ PrefabInstance:
     - target: {fileID: 6970504767236027847, guid: e8563b1e353329e41b54646f7724db79, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: dbe80190c9adea34c8c8845ca4a17934, type: 2}
+      objectReference: {fileID: 2100000, guid: 8521b32b7fcd7ae41acc48012ada9ec0, type: 2}
     - target: {fileID: 9188081629605115928, guid: e8563b1e353329e41b54646f7724db79, type: 3}
       propertyPath: m_Material
       value: 
@@ -114,4 +114,6 @@ MonoBehaviour:
   rotationForce: 30
   maxSpeed: 6
   rotationDamping: 8
+  showTargetAnchor: 0
   target: {fileID: 0}
+  maxPredictionTime: 1.5

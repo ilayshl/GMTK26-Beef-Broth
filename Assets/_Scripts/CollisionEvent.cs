@@ -2,16 +2,14 @@ using UnityEngine;
 
 public struct CollisionEvent : IGameEvent
 {
-    public float Magnitude;
-    public Rigidbody Hitter;
-    public Rigidbody Taker;
-    public Vector3 PositionOfImpact;
+    public Collision Collision;
+    public CollisionDetector Sender;
+    public CollisionDetector Collided;
 
-    public CollisionEvent(float mag, Rigidbody hitter, Rigidbody taker, Vector3 pos)
+    public CollisionEvent(Collision collision, CollisionDetector sender, CollisionDetector collided)
     {
-        Magnitude = mag;
-        Hitter = hitter;
-        Taker = taker;
-        PositionOfImpact = pos;
+        Collision = collision;
+        Sender = sender;
+        Collided = collided;
     }
 }

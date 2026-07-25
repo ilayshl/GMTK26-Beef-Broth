@@ -3,10 +3,14 @@ using UnityEngine;
 public class CharacterBrain : MonoBehaviour
 {
     private CarController _controller;
+    private CollisionDetector _collisionDetector;
+    private int _health = 100;
 
     void Awake()
     {
-        _controller = GetComponent<CarController>();   
+        _controller = GetComponent<CarController>();
+        _collisionDetector = GetComponent<CollisionDetector>();
+        _collisionDetector.HitReceived += OnHitReceived;
     }
 
     void Update()
@@ -19,15 +23,9 @@ public class CharacterBrain : MonoBehaviour
         _controller.Move();
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnHitReceived(int value)
     {
-        if(collision.gameObject.TryGetComponent<CharacterBrain>(out var characterBrain))
-        {
-        float mag = collision.thisRigidbody.linearVelocity.magnitude;
-        float collidedMag = collision.rigidbody.linearVelocity.magnitude;
-        float higherMag = mag > collidedMag ? mag : collidedMag;
-        Vector3 pointOfImpact = collision.contacts[0].point;
-        EventBus.Publish(new CollisionEvent(higherMag, collision.thisRigidbody, collision.rigidbody, pointOfImpact));
-        }
+        _health -= value;
+        Debug.Log($"[{name}] Took a hit of {value}, current health: {_health}");
     }
 }

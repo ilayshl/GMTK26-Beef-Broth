@@ -90,6 +90,37 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3791448626828098805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5008515361440246153}
+  m_Layer: 0
+  m_Name: Collision Head
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5008515361440246153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3791448626828098805}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.37, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2215514311950784395}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &4052778950974255074
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +187,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e18ded4b611aa8f4a9f0f261d2f29537, type: 2}
+  - {fileID: 2100000, guid: a4b62a69d54e80347bd546999c6d4b9e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -192,6 +223,7 @@ GameObject:
   - component: {fileID: 5612691634457065495}
   - component: {fileID: 4004890040315219125}
   - component: {fileID: 3908166759558332454}
+  - component: {fileID: 2014634111213728008}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -271,6 +303,19 @@ MonoBehaviour:
   maxSpeed: 6
   rotationDamping: 7
   showTargetAnchor: 0
+--- !u!114 &2014634111213728008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4137048903635992152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20e4725f682c4833893723d6971f659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionDetector
+  collisionHead: {fileID: 5008515361440246153}
 --- !u!1 &4369252732653414942
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +345,8 @@ Transform:
   m_LocalPosition: {x: -0.82780993, y: -0.5, z: -0.088750005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5008515361440246153}
   m_Father: {fileID: 2017545520922690009}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!136 &9188081629605115928
