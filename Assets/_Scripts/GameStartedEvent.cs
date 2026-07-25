@@ -1,8 +1,10 @@
+using UnityEngine;
+
 public struct GameStartedEvent : IGameEvent
 {
-    public CharacterBrain Player;
+    public Rigidbody Player;
 
-    public GameStartedEvent(CharacterBrain player)
+    public GameStartedEvent(Rigidbody player)
     {
         Player = player;
     }

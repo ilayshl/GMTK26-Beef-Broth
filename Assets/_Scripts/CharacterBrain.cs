@@ -2,16 +2,11 @@ using UnityEngine;
 
 public class CharacterBrain : MonoBehaviour
 {
-    private CharacterController _controller;
+    private CarController _controller;
 
     void Awake()
     {
-        _controller = GetComponent<CharacterController>();   
-    }
-
-    void Start()
-    {
-        EventBus.Publish(new GameStartedEvent(this));
+        _controller = GetComponent<CarController>();   
     }
 
     void Update()

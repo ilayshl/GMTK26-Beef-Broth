@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : CharacterController
+public class PlayerController : CarController
 {
     private Camera _camera;
 
@@ -9,6 +9,11 @@ public class PlayerController : CharacterController
     {
         base.Awake();
         _camera = Camera.main;
+    }
+
+    void Start()
+    {
+        EventBus.Publish(new GameStartedEvent(rb));
     }
 
     public override void CalculateInputs()
