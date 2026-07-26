@@ -1,18 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VisualsManager : MonoBehaviour
+public class VisualsManager : Singleton<VisualsManager>
 {
-    public static VisualsManager Instance;
-
     private readonly HashSet<int> usedHats = new();
     private readonly HashSet<int> usedColors = new();
     private readonly HashSet<int> usedFaces = new();
-
-    void Awake()
-    {
-        Instance = this;
-    }
 
     public int GetUniqueHat(int count)
     {

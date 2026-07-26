@@ -11,7 +11,7 @@ public class VisualsScrambler : MonoBehaviour
     private int _colorIndex = -1;
     private int _faceIndex = -1;
 
-    private void OnEnable()
+    private void Start()
     {
         RandomizeVisuals();
     }

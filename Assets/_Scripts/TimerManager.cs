@@ -16,7 +16,7 @@ public class TimerManager : Singleton<TimerManager>
 
     void Start()
     {
-        StartTimer(1);
+        StartTimer(60);
     }
 
     private void StartTimer(float amount)
@@ -66,8 +66,6 @@ public class TimerManager : Singleton<TimerManager>
                 SecondPassed?.Invoke(_nextSecond);
                 _nextSecond--;
             }
-
-            Debug.Log($"[{name}] Time left: {Round(_currentTime)}, Time elapsed: {_timeElapsed}");
             yield return null;
         }
 

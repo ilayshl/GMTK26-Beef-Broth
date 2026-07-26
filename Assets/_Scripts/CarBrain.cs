@@ -25,7 +25,7 @@ public class CarBrain : MonoBehaviour
 
     private void OnHitReceived()
     {
-        if(IsPlayer)
+        if(!IsPlayer)
         {
             TimerManager.Instance.AddTime(3);
         }
