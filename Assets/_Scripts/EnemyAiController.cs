@@ -2,32 +2,14 @@ using UnityEngine;
 
 public class EnemyAiController : CarController
 {
-    [SerializeField] private Rigidbody target;
+    [SerializeField] private Rigidbody target; //For when it's a scene object
     [SerializeField] private float maxPredictionTime = 1.5f;
     private Rigidbody _target;
 
-    protected override void Awake()
+    void Start()
     {
-        base.Awake();
-        if (target == null)
-        {
-            EventBus.Subscribe<GameStartedEvent>(OnGameStarted);
-        }
-        else
-        {
-            _target = target;
-        }
-    }
-
-    private void OnDestroy()
-    {
-         if (target == null)
-            EventBus.Unsubscribe<GameStartedEvent>(OnGameStarted);
-    }
-    
-    private void OnGameStarted(GameStartedEvent ev)
-    {
-        _target = ev.Player;
+        if(target == null) _target = CharacterSpawner.Instance.SpawnedPlayer;
+        else _target = target;
     }
 
     public override void CalculateInputs()
@@ -42,10 +24,5 @@ public class EnemyAiController : CarController
 
         targetPosition = _target.position +
                          _target.linearVelocity * predictionTime;
-
-        if(showTargetAnchor)
-        {
-            
-        }
     }
 }

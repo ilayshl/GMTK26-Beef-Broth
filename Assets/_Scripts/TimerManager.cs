@@ -2,23 +2,26 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class TimerManager : MonoBehaviour
+public class TimerManager : Singleton<TimerManager>
 {
     public static event Action TimerFinished;
+    public static event Action<int> SecondPassed;
     public float CurrentTime => _currentTime;
     private float _countdown;
     private float _currentTime;
     private float _timeElapsed => Round(_countdown - _currentTime);
     private Coroutine _currentRoutine;
 
+    private int _nextSecond;
+
     void Start()
     {
-        StartTimer(1);    
+        StartTimer(1);
     }
 
     private void StartTimer(float amount)
     {
-        if(_currentRoutine != null)
+        if (_currentRoutine != null)
         {
             Debug.Log($"[{name}] Timer already running! Time left: {_currentTime}");
             return;
@@ -35,16 +38,41 @@ public class TimerManager : MonoBehaviour
         _currentTime = 0;
     }
 
+    public void AddTime(float amount)
+    {
+        if (_currentRoutine == null)
+            return;
+
+        _currentTime += amount;
+        _countdown += amount;
+
+        // Update the next second threshold.
+        _nextSecond = Mathf.FloorToInt(_currentTime) - 1;
+
+        Debug.Log($"Added {amount}s. New time: {Round(_currentTime)}");
+    }
+
     private IEnumerator TimerRoutine()
     {
         _currentTime = _countdown;
-        while(_currentTime > 0)
+        _nextSecond = Mathf.FloorToInt(_countdown) - 1;
+
+        while (_currentTime > 0)
         {
             _currentTime -= Time.deltaTime;
+
+            if (_currentTime <= _nextSecond)
+            {
+                SecondPassed?.Invoke(_nextSecond);
+                _nextSecond--;
+            }
+
             Debug.Log($"[{name}] Time left: {Round(_currentTime)}, Time elapsed: {_timeElapsed}");
             yield return null;
         }
+
         _currentRoutine = null;
+        TimerFinished?.Invoke();
     }
 
     private float Round(float number)
